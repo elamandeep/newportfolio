@@ -1,0 +1,84 @@
+---
+import { useSanityClient } from "astro-sanity";
+import Layout from "@/layouts/Layout.astro";
+import type { pageInterface } from "@/types";
+import { sanityPortableText } from "@/utils/portableToHtml";
+import { Badge } from "@/components/ui/badge";
+import {FaTags} from 'react-icons/fa/index.js'
+import { FiGlobe, FiGithub } from "react-icons/fi/index.js";
+import { Img } from "@/components/utils/Img";
+
+export async function getStaticPaths() {
+	const projects = await useSanityClient().fetch(
+		"*[_type=='project']{title,description,role,tags,'slug':slug.current,'icon':icon.asset._ref,githubLink,liveLink,tech, imageGallery}"
+	);
+
+	return projects.map(
+		({
+			slug,
+			title,
+			description,
+			tags,
+			liveLink,
+			githubLink,
+			imageGallery,
+		}: pageInterface) => {
+			return {
+				params: { slug: slug },
+				props: {
+					title,
+					description,
+					tags,
+					liveLink,
+					githubLink,
+					imageGallery,
+					slug,
+				},
+			};
+		}
+	);
+}
+
+const { title, description, tags, liveLink, githubLink, imageGallery } =
+	Astro.props;
+const { slug } = Astro.params;
+---
+
+<Layout title={title}>
+	<section class="flex flex-col text-md md:text-lg justify-start space-y-5">
+		<h1 class="text-3xl md:text-5xl  font-mono font-semibold">{title}</h1>
+		{
+			tags.map((tag: string) => (
+				<Badge className="w-32 text-sm md:text-md flex justify-start items-center gap-2">
+					{" "}
+					<FaTags size="15px" /> {tag}
+				</Badge>
+			))
+		}
+
+		<div class="flex justify-start items-center gap-5">
+			<a
+				class="text-muted-foreground flex justify-center items-center gap-2"
+				href={liveLink}
+				target="_blank"
+			>
+				<FiGlobe size="20px" />{liveLink ?? "Na"}</a
+			>
+			<a
+				href={githubLink}
+				class="text-muted-foreground flex justify-center items-center gap-2"
+				target="_blank"
+			>
+				<FiGithub size="20px" />{githubLink ?? "Na"}
+			</a>
+		</div>
+		<Fragment set:html={sanityPortableText(description)} />
+		<div class="flex flex-col gap-3">
+			{imageGallery === null ||	(imageGallery.map((image: { asset: { _ref: string }}) => (
+
+					<Img image={image.asset._ref} slug={slug} />
+				)))
+			}
+		</div>
+	</section>
+</Layout>

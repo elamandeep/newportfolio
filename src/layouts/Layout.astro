@@ -1,0 +1,77 @@
+---
+type title = string;
+
+import "@/styles/global.css";
+
+import { FiGithub, FiTwitter } from "react-icons/fi/index.js";
+import { RiDiscordLine } from "react-icons/ri/index.js";
+import { CiLinkedin } from "react-icons/ci/index.js";
+import {ThemeSwitcher} from '@/components/utils/ThemeSwitcher'
+import { Button } from "@/components/ui/button";
+
+const { title } = Astro.props;
+---
+
+<html lang="en" class="light">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto+Mono:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body class="font-roboto">
+    <nav
+      class="p-2 md:p-4 border fixed top-0 left-0 right-0 backdrop-blur-md z-20 rounded-full mx-10 md:mx-20 my-4 flex items-center justify-between"
+    >
+      <a href="/" class="font-extrabold text-2xl md:text-3xl p-3 cursor-pointer">A.</a>
+      <div class="flex justify-around text-sm w-72 lg:w-96">
+        <a href="/">Home</a>
+        <a href="/works">All Works</a>
+        <a href="/resume">Resume</a>
+        <a href="/about">About</a>
+      </div>
+      <div class="flex items-center gap-1">
+
+        <ThemeSwitcher client:only/>
+        <Button className="rounded-full hidden md:block">Connect With me</Button>
+      </div>
+    </nav>
+    <main class=" mx-10 md:mx-20 py-32 flex flex-col justify-center space-y-4">
+      <slot />
+    </main>
+
+    <footer class="mt-6 flex flex-col space-y-6 items-center p-6">
+      <div class="flex justify-around items-center gap-2 w-44">
+        <a href="https://github.com/elamandeep" target="_blank"
+          ><FiGithub size={25} className="text-muted-foreground" /></a
+        >
+        <a
+          href="https://discordapp.com/users/788606884285251644"
+          target="_blank"
+          ><RiDiscordLine size={30} className="text-muted-foreground" /></a
+        >
+        <a
+          href="https://www.linkedin.com/in/aman-deep-5464b425a/"
+          target="_blank"
+          ><CiLinkedin size={30} className="text-muted-foreground" /></a
+        >
+        <a
+          href="https://twitter.com/elamandeep?t=evwZYu6t5FJOnh6mRebXRQ&s=09"
+          target="_blank"
+          ><FiTwitter size={25} className="text-muted-foreground" /></a
+        >
+      </div>
+
+      <div class="flex justify-center gap-8">
+        <h2 class="text-muted-foreground text-sm">@2023 elamandeep</h2>
+        <h2 class="text-muted-foreground text-sm">built by elamandeep</h2>
+        <h2 class="text-muted-foreground text-sm">built with Astro</h2>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { FaReact, FaPython } from "react-icons/fa/index.js";
+import { DiJavascript1 } from "react-icons/di/index.js";
+import { SiDjango } from "react-icons/si/index.js";
+import { BiLogoPostgresql } from "react-icons/bi/index.js";
+import { BsGit } from "react-icons/bs/index.js";
+import { TbBrandReactNative } from "react-icons/tb/index.js";
+import { GrGraphQl } from "react-icons/gr/index.js";
+---
+
+<Layout title="Aman Deep">
+  <section
+    class="border flex flex-col items-start justify-center px-6 py-10 rounded-md min-h-[60vh]"
+  >
+    <h3 class="font-semibold text-xl uppercase mx-5 md:-mb-2">👋🏻 I'm</h3>
+    <h1 class="text-7xl md:text-[8rem] font-roboto tracking-tight font-semibold">
+      <span class="-mr-8 md:-mr-12">Aman</span>
+      <span>Deep</span>
+    </h1>
+    <h4 class="text-sm md:text-md text-muted-foreground mt-4">
+      Self taught full stack developer having proficiency in JavaScript and
+      Python (their frameworks and ecosystems ).
+    </h4>
+
+    <Button className="mt-6">Know more about me</Button>
+  </section>
+
+  <section class="border flex flex-wrap justify-between items-center md:px-6 rounded-md min-h-96 max-h-full">
+    <div class="flex flex-col items-start p-6 ">
+      <h3 class="font-semibold text-xl uppercase md:mb-5">My</h3>
+      <h1 class=" text-7xl md:text-[7rem] font-roboto tracking-tight md:-my-4">Tech</h1>
+      <h1 class="text-7xl md:text-[7rem] font-roboto tracking-tight">Stack</h1>
+      <h4 class="text-sm md:text-md text-muted-foreground mb-2">Well, my primary focus on javascript and python ecosystem.</h4>
+    </div>
+
+    <Separator orientation="vertical" className="min-h-96 h-96 hidden md:block" />
+    <Separator orientation="horizontal" className="w-full block md:hidden " />
+
+    <div
+      class="flex justify-center gap-2 w-full md:w-1/4 items-center h-44 justify-items-stretch p-2 md:pb-5 flex-wrap"
+    >
+      <div class="border cursor-pointer badge-light dark:badge-dark p-3 rounded-full">
+        <DiJavascript1 size="30px" />
+      </div>
+      <div class="border cursor-pointer badge-light dark:badge-dark p-3 rounded-full">
+        <FaReact size="30px" />
+      </div>
+      <div class="border cursor-pointer badge-light dark:badge-dark p-3 rounded-full">
+        <FaPython size="30px" />
+      </div>
+      <div class="border cursor-pointer badge-light dark:badge-dark p-3 rounded-full">
+        <BsGit size="30px" />
+      </div>
+      <div class="border cursor-pointer badge-light dark:badge-dark p-3 rounded-full">
+        <SiDjango size="30px" />
+      </div>
+      <div class="border cursor-pointer badge-light dark:badge-dark p-3 rounded-full">
+        <BiLogoPostgresql size="30px" />
+      </div>
+      <div class="border cursor-pointer badge-light dark:badge-dark p-3 rounded-full">
+        <TbBrandReactNative size="30px" />
+      </div>
+      <div class="border cursor-pointer badge-light dark:badge-dark p-3 rounded-full">
+        <GrGraphQl size="30px" />
+      </div>
+    </div>
+
+    <div></div>
+  </section>
+
+  <section class="flex border p-6 flex-col justify-center items-start h-96 ">
+    
+      <h3 class="font-semibold text-xl uppercase ">My</h3>
+      <h1 class="text-7xl md:text-[7rem] font-roboto tracking-tight ">Works</h1>
+
+      <h4 class="text-sm md:text-md text-muted-foreground mt-6">Well, my primary focus on javascript and python ecosystem.</h4>
+    <a href="/works">
+    <Button className="mt-6">Here's my Works</Button>
+    </a>
+  </section>
+</Layout>

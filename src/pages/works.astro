@@ -1,0 +1,34 @@
+---
+import { useSanityClient } from "astro-sanity";
+import Layout from "@/layouts/Layout.astro";
+import type { cardInterface } from "@/types";
+import { urlForImage } from "@/utils/urlForImage";
+import { Button } from "@/components/ui/button";
+
+const projects: cardInterface[] = await useSanityClient().fetch(
+  "*[_type=='project']{title,'slug':slug.current,'icon':icon.asset._ref}"
+);
+---
+
+<Layout title="All Works">
+  <h1 class="text-6xl text-center text-card-foreground font-bold mb-10">All Works</h1>
+
+  <section class="grid grid-cols-2 space-y-3 md:grid-cols-4 place-items-center mt-6">
+    {
+      projects.map((project) => (
+        <div class="rounded-md border w-44 h-44 bg-card grid place-items-center">
+          <img
+            src={urlForImage(project.icon).url()}
+            width="80px"
+            height="80px"
+            alt={project.title}
+          />
+          <h1>{project.title}</h1>
+          <a href={`/project/${project.slug}`} >
+          <Button>View Project</Button>
+          </a>
+        </div>
+      ))
+    }
+  </section>
+</Layout>
