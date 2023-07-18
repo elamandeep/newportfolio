@@ -26,26 +26,26 @@ const { title } = Astro.props;
   </head>
   <body class="font-roboto">
     <nav
-      class="p-2 md:p-4 border fixed top-0 left-0 right-0 backdrop-blur-md z-20 rounded-full mx-10 md:mx-20 my-4 flex items-center justify-between"
+      class="p-2 md:p-4 border fixed top-0 left-0 right-0 backdrop-blur-md z-20 rounded-full mx-2 sm:mx-10 md:mx-20 my-4 flex items-center justify-between"
     >
       <a href="/" class="font-extrabold text-2xl md:text-3xl p-3 cursor-pointer">A.</a>
-      <div class="flex justify-around text-sm w-72 lg:w-96">
+      <div class="flex justify-around items-center text-sm md:text-md w-72 lg:w-96">
         <a href="/">Home</a>
-        <a href="/works">All Works</a>
+        <a href="/works">Works</a>
         <a href="/resume">Resume</a>
         <a href="/about">About</a>
       </div>
       <div class="flex items-center gap-1">
 
-        <ThemeSwitcher client:only/>
+        <ThemeSwitcher client:load/>
         <Button className="rounded-full hidden md:block">Connect With me</Button>
       </div>
     </nav>
-    <main class=" mx-10 md:mx-20 py-32 flex flex-col justify-center space-y-4">
+    <main class="mx-2 sm:mx-10 md:mx-20 py-32 flex flex-col justify-center space-y-4">
       <slot />
     </main>
 
-    <footer class="mt-6 flex flex-col space-y-6 items-center p-6">
+    <footer class="sm:mt-3 md:mt-6 flex flex-col space-y-6 items-center p-6">
       <div class="flex justify-around items-center gap-2 w-44">
         <a href="https://github.com/elamandeep" target="_blank"
           ><FiGithub size={25} className="text-muted-foreground" /></a
@@ -67,10 +67,10 @@ const { title } = Astro.props;
         >
       </div>
 
-      <div class="flex justify-center gap-8">
-        <h2 class="text-muted-foreground text-sm">@2023 elamandeep</h2>
-        <h2 class="text-muted-foreground text-sm">built by elamandeep</h2>
-        <h2 class="text-muted-foreground text-sm">built with Astro</h2>
+      <div class="flex justify-center sm:gap-4 gap-8">
+        <h2 class="text-muted-foreground text-xs text-center sm:text-sm">@2023 elamandeep</h2>
+        <h2 class="text-muted-foreground text-xs text-center sm:text-sm">built by elamandeep</h2>
+        <h2 class="text-muted-foreground text-xs text-center sm:text-sm">built with Astro</h2>
       </div>
     </footer>
   </body>
