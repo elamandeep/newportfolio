@@ -1,14 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState, memo } from "react";
 import { FiMoon, FiSun } from 'react-icons/fi/index.js'
 
 
-export const ThemeSwitcher = () => {
+export const ThemeSwitcher = memo(() => {
     const [theme, setTheme] = useState<string>(localStorage.getItem('theme') || 'light')
 
-    console.log(theme)
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         let html = document.querySelector("html") as HTMLElement
         html.className = theme
     }, [theme])
@@ -34,4 +33,4 @@ export const ThemeSwitcher = () => {
             }
         </Button>
     );
-}
+})

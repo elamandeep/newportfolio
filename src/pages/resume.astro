@@ -1,0 +1,50 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Separator } from "@/components/ui/separator";
+---
+
+<Layout title="Resume | Aman Deep">
+  <section class="flex flex-col md:flex-row justify-around space-y-3 md:space-x-3 border rounded-lg h-auto">
+    <div class="p-6 ">
+      <div class="w-full">
+        <img src="" alt="Aman Deep" />
+        <h1 class="">Aman Deep</h1>
+        <h4 class="text-muted-foreground">Self taught Fullstack Developer</h4>
+        <h4 class="text-muted-foreground">2nd year BCA Student</h4>
+      </div>
+    </div>
+    <Separator orientation="vertical" className="h-auto hidden md:block" />
+    <Separator orientation="horizontal" className="w-full block md:hidden " />
+    <div class="p-3">
+      <div class="p-3">
+        <h1 class="mb-3">Experience</h1>
+        <ul class="space-y-1 text-muted-foreground list-disc px-5">
+          <li>
+            I was finalist in harper DB hackathon <a
+              class="text-emerald-500"
+              href="https://github.com/divanov11/Hackathon---Code-Battle-Edition/blob/master/finalist_harperdb.md#8-harperjob-aman-deep"
+              >Link</a>
+          </li>
+          <li>
+            Did few freelancing projects(umaskitchens web, umaskitchens app..)
+          </li>
+        </ul>
+      </div>
+
+      <div class="p-6">
+        <h1 class="mb-3">Skills</h1>
+        <h3 class="text-muted-foreground px-3">HTML , CSS, Chakra UI, Tailwind CSS, Javascript,<br/> React JS, Solid JS, Next JS, Astro JS,  Python, Django, Fast API, PostgreSQL, Openlayers, PostGIS, Linux </h3>
+      </div>
+
+      <div class="p-6">
+        <h1 class="mb-3">Interests</h1>
+        <ul class="text-muted-foreground px-3 list-disc">
+            <li>Reading</li>
+            <li>Listening Song</li>
+            <li>StoryTelling</li>
+            <li>Watching Movies</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>
