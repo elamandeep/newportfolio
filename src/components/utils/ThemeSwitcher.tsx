@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
-import { FiMoon, FiSun } from 'react-icons/fi'
+import { FiMoon, FiSun } from 'react-icons/fi/index.js'
 
 
 export const ThemeSwitcher = () => {

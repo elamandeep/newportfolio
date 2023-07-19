@@ -15,9 +15,4 @@ export default defineConfig({
       useCdn: true,
     }),
   ],
-  vite: {
-    ssr: {
-      external: ["svgo", "png"],
-    },
-  },
 });
