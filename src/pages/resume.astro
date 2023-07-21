@@ -1,16 +1,34 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
 ---
 
 <Layout title="Resume | Aman Deep">
-  <section class="flex flex-col md:flex-row justify-around space-y-3 md:space-x-3 border rounded-lg h-auto">
-    <div class="p-6 ">
-      <div class="w-full">
-        <img src="" alt="Aman Deep" />
+  <section
+    class="flex flex-col md:flex-row justify-around space-y-3 md:space-x-3 border rounded-lg h-auto"
+  >
+    <div class="p-6">
+      <div class="w-full flex flex-col items-center">
+        <img src="./profile.jpg" class="w-44 h-44 rounded-full border p-1" alt="Aman Deep" />
         <h1 class="">Aman Deep</h1>
-        <h4 class="text-muted-foreground">Self taught Fullstack Developer</h4>
+        <h3 class="text-muted-foreground text-center">Self taught Fullstack Developer</h4>
         <h4 class="text-muted-foreground">2nd year BCA Student</h4>
+      </div>
+
+      <div class="pt-4 flex flex-col space-y-4">
+        <a href="https://github.com/elamandeep" target="_blank"
+        ><Button variant="outline" className="w-full rounded-full">Github</Button></a
+        >
+        <a href="mailto:deep.aman6174@gmail.com" target="_blank"
+        ><Button variant="outline" className="w-full rounded-full">Email</Button></a
+        >
+        <a href="https://www.linkedin.com/in/aman-deep-5464b425a/" target="_blank"
+        ><Button variant="outline" className="w-full rounded-full">Linkedin</Button></a
+        >
+        <a href="https://twitter.com/elamandeep?t=evwZYu6t5FJOnh6mRebXRQ&s=09" target="_blank"
+        ><Button variant="outline" className="w-full rounded-full">Twitter</Button></a
+        >
       </div>
     </div>
     <Separator orientation="vertical" className="h-auto hidden md:block" />
@@ -23,7 +41,8 @@ import { Separator } from "@/components/ui/separator";
             I was finalist in harper DB hackathon <a
               class="text-emerald-500"
               href="https://github.com/divanov11/Hackathon---Code-Battle-Edition/blob/master/finalist_harperdb.md#8-harperjob-aman-deep"
-              >Link</a>
+              >Link</a
+            >
           </li>
           <li>
             Did few freelancing projects(umaskitchens web, umaskitchens app..)
@@ -33,16 +52,20 @@ import { Separator } from "@/components/ui/separator";
 
       <div class="p-6">
         <h1 class="mb-3">Skills</h1>
-        <h3 class="text-muted-foreground px-3">HTML , CSS, Chakra UI, Tailwind CSS, Javascript,<br/> React JS, Solid JS, Next JS, Astro JS,  Python, Django, Fast API, PostgreSQL, Openlayers, PostGIS, Linux </h3>
+        <h3 class="text-muted-foreground px-3">
+          HTML , CSS, Chakra UI, Tailwind CSS, Javascript,<br /> React JS, Solid
+          JS, Next JS, Astro JS, Python, Django, Fast API, PostgreSQL, Openlayers,
+          PostGIS, Linux
+        </h3>
       </div>
 
       <div class="p-6">
         <h1 class="mb-3">Interests</h1>
         <ul class="text-muted-foreground px-3 list-disc">
-            <li>Reading</li>
-            <li>Listening Song</li>
-            <li>StoryTelling</li>
-            <li>Watching Movies</li>
+          <li>Reading</li>
+          <li>Listening Song</li>
+          <li>StoryTelling</li>
+          <li>Watching Movies</li>
         </ul>
       </div>
     </div>
