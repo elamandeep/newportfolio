@@ -1,19 +1,25 @@
 ---
-import { useSanityClient } from "astro-sanity";
 import Layout from "@/layouts/Layout.astro";
 import type { cardInterface } from "@/types";
 import { urlForImage } from "@/utils/urlForImage";
 import { Button } from "@/components/ui/button";
+import { sanityClient } from "sanity:client";
 
-const projects: cardInterface[] = await useSanityClient().fetch(
+const projects: cardInterface[] = await sanityClient.fetch(
   "*[_type=='project']{title,'slug':slug.current,'icon':icon.asset._ref}"
 );
 ---
 
 <Layout title="All Works | Aman Deep">
-  <h1 class="text-4xl sm:text-5xl md:text-6xl text-center text-card-foreground font-bold mb-10 mx-1">All Works</h1>
+  <h1
+    class="text-4xl sm:text-5xl md:text-6xl text-center text-card-foreground font-bold mb-10 mx-1"
+  >
+    All Works
+  </h1>
 
-  <section class="grid grid-cols-1 sm:grid-cols-2 space-y-3 md:grid-cols-4 place-items-center mt-6">
+  <section
+    class="grid grid-cols-1 sm:grid-cols-2 space-y-3 md:grid-cols-4 place-items-center mt-6"
+  >
     {
       projects.map((project) => (
         <div class="rounded-md border w-64 sm:w-44 h-64 sm:h-44 bg-card grid place-items-center">
@@ -23,8 +29,8 @@ const projects: cardInterface[] = await useSanityClient().fetch(
             class="w-20 h-20"
           />
           <h1>{project.title}</h1>
-          <a href={`/project/${project.slug}`} >
-          <Button>View Project</Button>
+          <a href={`/project/${project.slug}`}>
+            <Button>View Project</Button>
           </a>
         </div>
       ))
