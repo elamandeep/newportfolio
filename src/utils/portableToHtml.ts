@@ -1,6 +1,8 @@
-import { portableTextToHtml } from "astro-sanity";
+// Migrate to astro-portabletext
 
-
-export const sanityPortableText = (source:{})=>{
-    return portableTextToHtml(source)
-}
+// import { portableTextToHtml } from "astro-sanity";
+//
+//
+// export const sanityPortableText = (source:{})=>{
+//     return portableTextToHtml(source)
+// }
